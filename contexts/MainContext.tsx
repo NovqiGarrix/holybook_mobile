@@ -8,9 +8,8 @@ import {
   useEffect,
   MutableRefObject,
   createRef,
-  RefObject,
 } from "react";
-import { ScrollView, View } from "react-native";
+import { View } from "react-native";
 import { useQuery } from "react-query";
 import getVerses from "../fetchers/getVerses";
 import { IBook, IPasal } from "../types";

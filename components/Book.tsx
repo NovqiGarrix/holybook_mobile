@@ -1,4 +1,4 @@
-import { FunctionComponent, MutableRefObject } from "react";
+import { FunctionComponent } from "react";
 import { Image, Text, View } from "react-native";
 import COLORS from "../constants/COLORS";
 import IMAGES from "../constants/IMAGES";

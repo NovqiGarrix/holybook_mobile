@@ -1,12 +1,4 @@
-import {
-  createRef,
-  FunctionComponent,
-  MutableRefObject,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { FunctionComponent, useContext, useEffect, useRef } from "react";
 import {
   ActivityIndicator,
   FlatList,

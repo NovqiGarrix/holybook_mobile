@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import COLORS from "../constants/COLORS";
 import IMAGES from "../constants/IMAGES";
 

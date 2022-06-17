@@ -10,7 +10,6 @@ import {
   View,
   ActivityIndicator,
   ScrollView,
-  LayoutChangeEvent,
   Keyboard,
 } from "react-native";
 import { useQuery } from "react-query";
@@ -64,7 +63,6 @@ const Verses: FunctionComponent<IVersesProps> = ({ scrollViewRef }) => {
 
     if (matchedVerse) {
       Keyboard.dismiss();
-
       const currentRef = versesRefs[matchedVerseIndex];
       setActiveVerse((prev) => ({ ...prev, [matchedVerse.id]: matchedVerse }));
 
@@ -88,15 +86,14 @@ const Verses: FunctionComponent<IVersesProps> = ({ scrollViewRef }) => {
     }
   }, [activeChapter?.id, query]);
 
+  const handleChangeLayout = () => {};
+
   return (
     <View
       style={{
         paddingLeft: 55,
         marginTop: 25,
-        height: "100%",
-        marginBottom: data?.ayat.length
-          ? data.ayat[data.ayat.length - 1].description.length
-          : 50,
+        paddingBottom: 80,
       }}
     >
       {isLoading ? (
@@ -143,13 +140,16 @@ const Verses: FunctionComponent<IVersesProps> = ({ scrollViewRef }) => {
       ) : (
         (data?.ayat?.length ?? 0) > 0 &&
         data?.ayat.map((verse, index) => {
+          const isActive = activeVerse[verse.id];
+
           return (
             <View
               ref={versesRefs[index]}
-              style={{ marginBottom: 20 }}
+              onLayout={handleChangeLayout}
+              style={{ marginBottom: 40 }}
               key={verse.id}
             >
-              <Verse verse={verse} />
+              <Verse verse={verse} isActive={Boolean(isActive)} />
             </View>
           );
         })

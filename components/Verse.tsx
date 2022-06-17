@@ -1,15 +1,18 @@
 import { FunctionComponent, useContext } from "react";
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import COLORS from "../constants/COLORS";
+import ETC from "../constants/ETC";
+import IMAGES from "../constants/IMAGES";
 import { MainContext } from "../contexts/MainContext";
 import { IAyat } from "../types";
 
 interface IVerseProps {
   verse: IAyat;
+  isActive: boolean;
 }
 const Verse: FunctionComponent<IVerseProps> = (props) => {
+  const { verse, isActive } = props;
   const { activeBook, activeChapter } = useContext(MainContext);
-  const { verse } = props;
 
   return (
     <>
@@ -19,10 +22,33 @@ const Verse: FunctionComponent<IVerseProps> = (props) => {
             width: "100%",
           }}
         >
-          <Text style={{ fontFamily: "Dosis_400Regular", color: "#fff" }}>
-            {verse.query}
-          </Text>
-          <Text style={{ fontFamily: "Dosis_400Regular", color: COLORS.dark }}>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "flex-start",
+              // justifyContent: "space-between",
+              // paddingRight: 20,
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: "Dosis_600SemiBold",
+                color: "#fff",
+                marginBottom: 10,
+                fontSize: isActive ? 16 : 14,
+              }}
+            >
+              {verse.query}
+            </Text>
+          </View>
+          <Text
+            style={{
+              fontFamily: isActive ? "Dosis_600SemiBold" : "Dosis_500Medium",
+              color: COLORS.dark,
+              lineHeight: 25,
+              fontSize: isActive ? 16 : 14,
+            }}
+          >
             {verse.description}
           </Text>
         </View>

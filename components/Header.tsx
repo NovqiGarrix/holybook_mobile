@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import COLORS from "../constants/COLORS";
 import IMAGES from "../constants/IMAGES";
 
 const Header: FunctionComponent = () => {

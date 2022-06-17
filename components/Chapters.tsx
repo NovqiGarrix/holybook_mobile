@@ -183,13 +183,17 @@ const Chapters: FunctionComponent = () => {
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
                 initialNumToRender={chaptersData?.chapters.length ?? 100}
-                onScrollToIndexFailed={(info) =>
-                  // flatListRef.current?.scrollToIndex({
-                  //   animated: true,
-                  //   index: info.index,
-                  // })
-                  console.log(info.index)
-                }
+                onScrollToIndexFailed={(info) => {
+                  const wait = new Promise((resolve) =>
+                    setTimeout(resolve, 500)
+                  );
+                  wait.then(() =>
+                    flatListRef.current?.scrollToIndex({
+                      animated: true,
+                      index: info.index,
+                    })
+                  );
+                }}
                 style={{
                   flexGrow: 0,
                   overflow: "visible",
