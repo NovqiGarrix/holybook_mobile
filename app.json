@@ -1,15 +1,15 @@
 {
   "expo": {
     "name": "Alkitabku",
-    "slug": "novqi-alkitabku",
+    "slug": "alkitabku",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/AppLogo.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FFFFFF"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,7 +24,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.novqigarrix.alkitabku",
