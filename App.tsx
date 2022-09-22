@@ -29,6 +29,7 @@ import {
 import MainContextProvider from "./contexts/MainContext";
 
 export default function AppWrapper() {
+  /** Since the Books of the Bible will never change, I set the stale time to Infinity */
   const client = new QueryClient({
     defaultOptions: { queries: { staleTime: Infinity } },
   });

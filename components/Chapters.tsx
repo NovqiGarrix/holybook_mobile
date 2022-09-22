@@ -29,16 +29,21 @@ const Chapters: FunctionComponent = () => {
     isError,
     refetch,
   } = useQuery(
+    /** I set the query key as an array, like so.
+     * So that, every change on activeBook state, will refetch this query
+     */
     ["chapters", activeBook],
     () => getChapters(activeBook?.kitab!),
+    /** I disabled the query so that we can use it when the activeBook state is ready or NOT NULL */
     { enabled: false }
   );
 
+  /** We check if the activeBook state is ready or not, do fetch if it's ready. */
   useEffect(() => {
     if (activeBook) {
       refetch().then(({ data }) => {
         if (!data?.chapters.length) return;
-
+        /** I also set the activeChapter, so that I can use it to get all the verses. */
         setActiveChapter(data.chapters[0]!);
       });
     }
